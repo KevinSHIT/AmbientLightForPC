@@ -9,7 +9,7 @@ This project is based on [1].
 ## Materials
 
 - Environment Brightness Proximity Sensor, e.g. APDS-9900, TCS34725, etc.
-- I<sup>2</sup>C to USB Convert converter or microcontroller board, e.g. Arduino Micro, Raspberry Pi Pico, etc.
+- I<sup>2</sup>C to USB converter or microcontroller board, e.g. Arduino Micro, Raspberry Pi Pico, etc.
 
 ## References
 
