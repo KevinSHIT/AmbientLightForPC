@@ -6,7 +6,7 @@ On the night I was hated or abandoned by one of my closest friends, I got insomn
 
 This project is based on [1].
 
-## Material
+## Materials
 
 - APDS-9900<sup>Environment Brightness Proximity Sensor</sup>
 - I<sup>2</sup>C to USB<sup>Convert I<sup>2</sup>C to USB</sup>
