@@ -11,6 +11,9 @@ This project is based on [1].
 - APDS-9900<sup>Environment Brightness Proximity Sensor</sup>
 - I<sup>2</sup>C to USB<sup>Convert I<sup>2</sup>C to USB</sup>
 
-## Reference
+## References
 
-1. DIY install an ambient light sensor for display to implement control brightness automatically (original: DIY 给显示器加装光传感器，实现自动调节亮度) - <https://www.v2ex.com/t/478729>
+1. dbw9580 (2018) ‘DIY install an ambient light sensor for display to implement control brightness automatically (original: DIY 给显示器加装光传感器，实现自动调节亮度)’ [Online] V2EX  
+Available at: <https://www.v2ex.com/t/478729> [Last Accessed 11.06.2021]
+2. Microsoft (2019) ‘Integrating Ambient Light Sensors with Computers Running Windows 10 Creators Update’ [Online] Microsoft Docs 
+Available at: <https://docs.microsoft.com/en-gb/windows-hardware/design/whitepapers/integrating-ambient-light-sensors-with-computers-running-windows-10-creators-update> [Last Accessed 11.06.2021]
