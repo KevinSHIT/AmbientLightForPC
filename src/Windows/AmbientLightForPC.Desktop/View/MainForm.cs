@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using AmbientLightForPC.Library;
 using AmbientLightForPC.Library.Controller;
@@ -31,6 +32,7 @@ namespace AmbientLightForPC.Desktop.View
             cmbBrightnessController.Items.Add(Factory.CreateController<DefaultBrightnessController>());
             cmbBrightnessController.Items.Add(Factory.CreateController<GammaBrightnessController>());
             cmbBrightnessController.SelectedIndex = 0;
+            ntfMain.Icon = SystemIcons.Application;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
@@ -83,6 +85,22 @@ namespace AmbientLightForPC.Desktop.View
             }
 
             tkbBrightness.Maximum = (int) (numBrightness.Maximum = ckbOverNormal.Checked ? 255 : 100);
+        }
+
+        private void ntfMain_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            ShowInTaskbar = true;
+            ntfMain.Visible = false;
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                ntfMain.Visible = true;
+                ShowInTaskbar = false;
+            }
         }
     }
 }

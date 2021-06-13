@@ -29,6 +29,7 @@ namespace AmbientLightForPC.Desktop.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tkbBrightness = new System.Windows.Forms.TrackBar();
             this.cmbBrightnessController = new System.Windows.Forms.ComboBox();
             this.numBrightness = new System.Windows.Forms.NumericUpDown();
@@ -37,6 +38,7 @@ namespace AmbientLightForPC.Desktop.View
             this.ckbOverNormal = new System.Windows.Forms.CheckBox();
             this.gpbInfo = new System.Windows.Forms.GroupBox();
             this.lblControllerInfo = new System.Windows.Forms.Label();
+            this.ntfMain = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tkbBrightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrightness)).BeginInit();
             this.gpbInfo.SuspendLayout();
@@ -127,6 +129,12 @@ namespace AmbientLightForPC.Desktop.View
             this.lblControllerInfo.TabIndex = 0;
             this.lblControllerInfo.Text = "Null";
             // 
+            // ntfMain
+            // 
+            this.ntfMain.Text = "AmbientLightForPC.Desktop";
+            this.ntfMain.Visible = true;
+            this.ntfMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfMain_MouseDoubleClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -140,9 +148,11 @@ namespace AmbientLightForPC.Desktop.View
             this.Controls.Add(this.cmbBrightnessController);
             this.Controls.Add(this.tkbBrightness);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.tkbBrightness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrightness)).EndInit();
             this.gpbInfo.ResumeLayout(false);
@@ -161,6 +171,7 @@ namespace AmbientLightForPC.Desktop.View
         private System.Windows.Forms.CheckBox ckbOverNormal;
         private System.Windows.Forms.GroupBox gpbInfo;
         private System.Windows.Forms.Label lblControllerInfo;
+        private System.Windows.Forms.NotifyIcon ntfMain;
     }
 }
 
