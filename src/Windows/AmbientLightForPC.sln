@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientLightForPC.ConsoleApp", "AmbientLightForPC.ConsoleApp\AmbientLightForPC.ConsoleApp.csproj", "{94491547-CE67-4FCB-B7F4-0F4670D0C0E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientLightForPC.Plugin", "AmbientLightForPC.Plugin\AmbientLightForPC.Plugin.csproj", "{1D85DB6B-2E6C-4004-86BD-24ED7DBBB86C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94491547-CE67-4FCB-B7F4-0F4670D0C0E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94491547-CE67-4FCB-B7F4-0F4670D0C0E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94491547-CE67-4FCB-B7F4-0F4670D0C0E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94491547-CE67-4FCB-B7F4-0F4670D0C0E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D85DB6B-2E6C-4004-86BD-24ED7DBBB86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D85DB6B-2E6C-4004-86BD-24ED7DBBB86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D85DB6B-2E6C-4004-86BD-24ED7DBBB86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D85DB6B-2E6C-4004-86BD-24ED7DBBB86C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
