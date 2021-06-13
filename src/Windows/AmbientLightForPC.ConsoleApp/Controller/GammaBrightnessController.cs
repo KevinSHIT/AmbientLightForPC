@@ -17,7 +17,7 @@ namespace AmbientLightForPC
             hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
         }
 
-        public static unsafe bool SetBrightness(byte brightness)
+        public static unsafe bool ControlBrightnessUnsafe(byte brightness)
         {
             if (brightness > 255)
                 brightness = 255;
@@ -41,14 +41,7 @@ namespace AmbientLightForPC
 
         public bool ControlBrightness(byte controlValue)
         {
-            try
-            {
-                return SetBrightness(controlValue);
-            }
-            catch
-            {
-                return false;
-            }
+            return ControlBrightnessUnsafe(controlValue);
         }
     }
 }

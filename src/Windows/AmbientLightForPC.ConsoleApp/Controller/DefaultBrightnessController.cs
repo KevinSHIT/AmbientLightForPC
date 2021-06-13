@@ -6,14 +6,14 @@ namespace AmbientLightForPC
 {
     public class DefaultBrightnessController : IBrightnessControl
     {
-        private bool ControlBrightnessByManagement(byte value, bool onlyValidForFirst = true)
+        private bool ControlBrightness(byte value, bool onlyValidForFirst)
         {
             ManagementScope scope = new ManagementScope("root\\WMI");
 
             SelectQuery query = new SelectQuery("WmiMonitorBrightnessMethods");
 
-            ManagementObjectSearcher mos = new ManagementObjectSearcher(scope, query);
-            ManagementObjectCollection moc = mos.Get();
+            using ManagementObjectSearcher mos = new ManagementObjectSearcher(scope, query);
+            using ManagementObjectCollection moc = mos.Get();
             if (moc.Count < 0)
                 return false;
 
@@ -21,26 +21,19 @@ namespace AmbientLightForPC
             foreach (ManagementObject mo in moc)
             {
                 mo.InvokeMethod("WmiSetBrightness", new Object[] {UInt32.MaxValue, value});
+
+                mo.Dispose();
+
                 if (onlyValidForFirst)
                     break;
             }
-
-            moc.Dispose();
-            mos.Dispose();
 
             return true;
         }
 
         public bool ControlBrightness(byte controlValue)
         {
-            try
-            {
-                return ControlBrightnessByManagement(controlValue);
-            }
-            catch
-            {
-                return false;
-            }
+            return ControlBrightness(controlValue, true);
         }
     }
 }
