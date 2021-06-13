@@ -11,7 +11,7 @@ namespace AmbientLightForPC.ConsoleApp
         {
             BrightnessControllerBase bc = Factory.CreateController<DefaultBrightnessController>();
             Console.WriteLine(bc);
-            Console.WriteLine(bc.TryControlBrightness(100));
+            Console.WriteLine(bc.TrySetBrightness(100));
         }
     }
 }

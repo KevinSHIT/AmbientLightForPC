@@ -6,7 +6,7 @@ namespace AmbientLightForPC.Library.Controller
 {
     public class DefaultBrightnessController : BrightnessControllerBase
     {
-        private bool ControlBrightness(byte value, bool onlyValidForFirst)
+        private bool SetBrightness(byte value, bool onlyValidForFirst)
         {
             ManagementScope scope = new ManagementScope("root\\WMI");
 
@@ -31,9 +31,34 @@ namespace AmbientLightForPC.Library.Controller
             return true;
         }
 
-        public override bool ControlBrightness(byte controlValue)
+        public override bool SetBrightness(byte controlValue)
         {
-            return ControlBrightness(controlValue, true);
+            return SetBrightness(controlValue, true);
+        }
+
+        public byte GetBrightness(bool onlyValidForFirst)
+        {
+            ManagementScope scope = new ManagementScope("root\\WMI");
+
+            SelectQuery query = new SelectQuery("WmiMonitorBrightness");
+
+            using ManagementObjectSearcher mos = new ManagementObjectSearcher(scope, query);
+            using ManagementObjectCollection moc = mos.Get();
+
+            byte curBrightness = 0;
+            foreach (ManagementObject mo in moc)
+            {
+                curBrightness = (byte) mo.GetPropertyValue("CurrentBrightness");
+                if (onlyValidForFirst)
+                    break;
+            }
+
+            return curBrightness;
+        }
+
+        public override byte GetBrightness()
+        {
+            return GetBrightness(true);
         }
 
         public override string Name => "Default Brightness Controller";

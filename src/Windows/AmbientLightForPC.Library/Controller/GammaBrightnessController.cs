@@ -17,7 +17,7 @@ namespace AmbientLightForPC.Library.Controller
             _hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
         }
 
-        private static unsafe bool ControlBrightnessUnsafe(byte brightness)
+        private static unsafe bool SetBrightnessUnsafe(byte brightness)
         {
             if (brightness > 255)
                 brightness = 255;
@@ -39,9 +39,14 @@ namespace AmbientLightForPC.Library.Controller
             return retVal;
         }
 
-        public override bool ControlBrightness(byte controlValue)
+        public override bool SetBrightness(byte controlValue)
         {
-            return ControlBrightnessUnsafe(controlValue);
+            return SetBrightnessUnsafe(controlValue);
+        }
+
+        public override byte GetBrightness()
+        {
+            return 0;
         }
 
         public override string Name => "Gamma Brightness Controller";

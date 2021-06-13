@@ -33,7 +33,7 @@ namespace AmbientLightForPC.Desktop.View
                 "Warning",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
             {
-                tkbBrightness.Value = tkbBrightness.Value = 100;
+                tkbBrightness.Value = (int) (numBrightness.Value = 100);
             }
         }
 
@@ -49,7 +49,17 @@ namespace AmbientLightForPC.Desktop.View
             if (selected == null)
                 return;
             BrightnessControllerBase bcb = (BrightnessControllerBase) selected;
-            bcb.TryControlBrightness((byte) tkbBrightness.Value);
+            bcb.TrySetBrightness((byte) tkbBrightness.Value);
+        }
+
+        private void cmbBrightnessController_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            object selected = cmbBrightnessController.SelectedItem;
+            if (selected == null)
+                return;
+            BrightnessControllerBase bcb = (BrightnessControllerBase) selected;
+
+            tkbBrightness.Value = (int) (numBrightness.Value = bcb.TryGetBrightness());
         }
     }
 }
