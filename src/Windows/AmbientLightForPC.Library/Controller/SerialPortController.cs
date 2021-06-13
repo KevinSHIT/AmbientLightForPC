@@ -1,13 +1,12 @@
-﻿using System;
-using System.IO.Ports;
+﻿using System.IO.Ports;
 using System.Text;
 
-namespace AmbientLightForPC.Controller
+namespace AmbientLightForPC.Library.Controller
 {
     public class SerialPortController : SerialPort
     {
-        private const int BUF_SIZE = 128;
-        
+        public int BufSize { get; set; } = 128;
+
         public event StringDataHandler StringDataReceived;
 
         public delegate void StringDataHandler(string value);
@@ -23,14 +22,14 @@ namespace AmbientLightForPC.Controller
                 if (StringDataReceived == null)
                     return;
 
-                byte[] inputBuf = new byte[BUF_SIZE];
+                byte[] inputBuf = new byte[BufSize];
 
                 try
                 {
                     Read(inputBuf, 0, BytesToRead);
                     StringDataReceived(Encoding.ASCII.GetString(inputBuf));
                 }
-                catch (TimeoutException ex)
+                catch
                 {
                     StringDataReceived("");
                 }

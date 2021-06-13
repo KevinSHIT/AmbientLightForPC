@@ -1,6 +1,6 @@
 ﻿using AmbientLightForPC.Plugin;
 
-namespace AmbientLightForPC
+namespace AmbientLightForPC.Library
 {
     public static class Factory
     {

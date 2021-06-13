@@ -1,8 +1,9 @@
 ﻿using System;
-using AmbientLightForPC.Controller;
+using AmbientLightForPC.Library;
+using AmbientLightForPC.Library.Controller;
 using AmbientLightForPC.Plugin;
 
-namespace AmbientLightForPC
+namespace AmbientLightForPC.ConsoleApp
 {
     public static class Program
     {

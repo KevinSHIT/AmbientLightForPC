@@ -3,18 +3,18 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using AmbientLightForPC.Plugin;
 
-namespace AmbientLightForPC.Controller
+namespace AmbientLightForPC.Library.Controller
 {
     public class GammaBrightnessController : IBrightnessControl
     {
         [DllImport("gdi32.dll")]
         private static extern unsafe bool SetDeviceGammaRamp(Int32 hdc, void* ramp);
 
-        private static Int32 hdc;
+        private static Int32 _hdc;
 
         public GammaBrightnessController()
         {
-            hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
+            _hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
         }
 
         private static unsafe bool ControlBrightnessUnsafe(byte brightness)
@@ -35,7 +35,7 @@ namespace AmbientLightForPC.Controller
                 }
             }
 
-            bool retVal = SetDeviceGammaRamp(hdc, gArray);
+            bool retVal = SetDeviceGammaRamp(_hdc, gArray);
             return retVal;
         }
 
