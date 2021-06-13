@@ -16,7 +16,7 @@ namespace AmbientLightForPC.Library.Controller
 
         public event ExceptionHandler OnException;
 
-        public delegate void ExceptionHandler(string value);
+        public delegate void ExceptionHandler(Exception e);
 
         #endregion
 
