@@ -24,18 +24,6 @@ namespace AmbientLightForPC.Desktop.View
         {
             tkbBrightness.Value = (int) numBrightness.Value;
 
-            if (tkbBrightness.Value > 100 && !hasShowedWarning)
-            {
-                hasShowedWarning = true;
-                if (MessageBox.Show(
-                    "Over 100 value may cause display unproperly! Are you sure you want to do this?",
-                    "Warning",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
-                {
-                    tkbBrightness.Value = (int) (numBrightness.Value = 100);
-                }
-            }
-
             if (ckbAutoApply.Checked)
                 Apply();
         }
@@ -74,6 +62,22 @@ namespace AmbientLightForPC.Desktop.View
         private void ckbAutoApply_CheckedChanged(object sender, EventArgs e)
         {
             btnApply.Enabled = !ckbAutoApply.Checked;
+        }
+
+        private void ckbOverNormal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbOverNormal.Checked)
+            {
+                if (MessageBox.Show(
+                    "Over 100 value may cause display unproperly! Are you sure you want to do this?",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    ckbOverNormal.Checked = false;
+                }
+            }
+
+            tkbBrightness.Maximum = (int) (numBrightness.Maximum = ckbOverNormal.Checked ? 255 : 100);
         }
     }
 }

@@ -34,15 +34,16 @@ namespace AmbientLightForPC.Desktop.View
             this.numBrightness = new System.Windows.Forms.NumericUpDown();
             this.btnApply = new System.Windows.Forms.Button();
             this.ckbAutoApply = new System.Windows.Forms.CheckBox();
+            this.ckbOverNormal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tkbBrightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrightness)).BeginInit();
             this.SuspendLayout();
             // 
             // tkbBrightness
             // 
-            this.tkbBrightness.Location = new System.Drawing.Point(12, 122);
+            this.tkbBrightness.Location = new System.Drawing.Point(12, 54);
             this.tkbBrightness.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tkbBrightness.Maximum = 255;
+            this.tkbBrightness.Maximum = 100;
             this.tkbBrightness.Name = "tkbBrightness";
             this.tkbBrightness.Size = new System.Drawing.Size(328, 56);
             this.tkbBrightness.TabIndex = 0;
@@ -54,30 +55,25 @@ namespace AmbientLightForPC.Desktop.View
             this.cmbBrightnessController.Location = new System.Drawing.Point(12, 12);
             this.cmbBrightnessController.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbBrightnessController.Name = "cmbBrightnessController";
-            this.cmbBrightnessController.Size = new System.Drawing.Size(283, 28);
+            this.cmbBrightnessController.Size = new System.Drawing.Size(460, 28);
             this.cmbBrightnessController.TabIndex = 1;
             this.cmbBrightnessController.SelectedIndexChanged += new System.EventHandler(this.cmbBrightnessController_SelectedIndexChanged);
             // 
             // numBrightness
             // 
-            this.numBrightness.Location = new System.Drawing.Point(371, 134);
+            this.numBrightness.Location = new System.Drawing.Point(346, 59);
             this.numBrightness.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numBrightness.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
             this.numBrightness.Name = "numBrightness";
-            this.numBrightness.Size = new System.Drawing.Size(150, 27);
+            this.numBrightness.Size = new System.Drawing.Size(126, 27);
             this.numBrightness.TabIndex = 2;
             this.numBrightness.ValueChanged += new System.EventHandler(this.numBrightness_ValueChanged);
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(479, 266);
+            this.btnApply.Location = new System.Drawing.Point(346, 115);
             this.btnApply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(94, 29);
+            this.btnApply.Size = new System.Drawing.Size(126, 54);
             this.btnApply.TabIndex = 3;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
@@ -86,7 +82,7 @@ namespace AmbientLightForPC.Desktop.View
             // ckbAutoApply
             // 
             this.ckbAutoApply.AutoSize = true;
-            this.ckbAutoApply.Location = new System.Drawing.Point(252, 264);
+            this.ckbAutoApply.Location = new System.Drawing.Point(12, 115);
             this.ckbAutoApply.Name = "ckbAutoApply";
             this.ckbAutoApply.Size = new System.Drawing.Size(106, 24);
             this.ckbAutoApply.TabIndex = 4;
@@ -94,11 +90,23 @@ namespace AmbientLightForPC.Desktop.View
             this.ckbAutoApply.UseVisualStyleBackColor = true;
             this.ckbAutoApply.CheckedChanged += new System.EventHandler(this.ckbAutoApply_CheckedChanged);
             // 
+            // ckbOverNormal
+            // 
+            this.ckbOverNormal.AutoSize = true;
+            this.ckbOverNormal.Location = new System.Drawing.Point(12, 145);
+            this.ckbOverNormal.Name = "ckbOverNormal";
+            this.ckbOverNormal.Size = new System.Drawing.Size(198, 24);
+            this.ckbOverNormal.TabIndex = 5;
+            this.ckbOverNormal.Text = "Allow Over Normal Value";
+            this.ckbOverNormal.UseVisualStyleBackColor = true;
+            this.ckbOverNormal.CheckedChanged += new System.EventHandler(this.ckbOverNormal_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(488, 183);
+            this.Controls.Add(this.ckbOverNormal);
             this.Controls.Add(this.ckbAutoApply);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.numBrightness);
@@ -122,6 +130,7 @@ namespace AmbientLightForPC.Desktop.View
         private System.Windows.Forms.NumericUpDown numBrightness;
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.CheckBox ckbAutoApply;
+        private System.Windows.Forms.CheckBox ckbOverNormal;
     }
 }
 
