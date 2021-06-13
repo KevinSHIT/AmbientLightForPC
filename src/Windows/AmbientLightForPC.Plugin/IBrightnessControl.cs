@@ -13,15 +13,14 @@
         {
             try
             {
-                ControlBrightness(controlValue);
-                return true;
+                return ControlBrightness(controlValue);
             }
             catch
             {
                 return false;
             }
         }
-        
+
         /// <summary>
         /// Control the brightness
         /// </summary>
