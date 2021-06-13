@@ -46,7 +46,7 @@ namespace AmbientLightForPC.Library.Controller
 
         public override byte GetBrightness()
         {
-            return 0;
+            return 100;
         }
 
         public override string Name => "Gamma Brightness Controller";
