@@ -24,17 +24,20 @@ namespace AmbientLightForPC.Desktop.View
         {
             tkbBrightness.Value = (int) numBrightness.Value;
 
-            if (tkbBrightness.Value <= 100 || hasShowedWarning)
-                return;
-
-            hasShowedWarning = true;
-            if (MessageBox.Show(
-                "Over 100 value may cause display unproperly! Are you sure you want to do this?",
-                "Warning",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (tkbBrightness.Value > 100 && !hasShowedWarning)
             {
-                tkbBrightness.Value = (int) (numBrightness.Value = 100);
+                hasShowedWarning = true;
+                if (MessageBox.Show(
+                    "Over 100 value may cause display unproperly! Are you sure you want to do this?",
+                    "Warning",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                {
+                    tkbBrightness.Value = (int) (numBrightness.Value = 100);
+                }
             }
+
+            if (ckbAutoApply.Checked)
+                Apply();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -46,11 +49,7 @@ namespace AmbientLightForPC.Desktop.View
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            object selected = cmbBrightnessController.SelectedItem;
-            if (selected == null)
-                return;
-            BrightnessControllerBase bcb = (BrightnessControllerBase) selected;
-            bcb.TrySetBrightness((byte) tkbBrightness.Value);
+            Apply();
         }
 
         private void cmbBrightnessController_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,6 +60,20 @@ namespace AmbientLightForPC.Desktop.View
             BrightnessControllerBase bcb = (BrightnessControllerBase) selected;
 
             tkbBrightness.Value = (int) (numBrightness.Value = bcb.TryGetBrightness());
+        }
+
+        private void Apply()
+        {
+            object selected = cmbBrightnessController.SelectedItem;
+            if (selected == null)
+                return;
+            BrightnessControllerBase bcb = (BrightnessControllerBase) selected;
+            bcb.TrySetBrightness((byte) tkbBrightness.Value);
+        }
+
+        private void ckbAutoApply_CheckedChanged(object sender, EventArgs e)
+        {
+            btnApply.Enabled = !ckbAutoApply.Checked;
         }
     }
 }
