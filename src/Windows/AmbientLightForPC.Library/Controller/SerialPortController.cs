@@ -1,4 +1,5 @@
-﻿using System.IO.Ports;
+﻿using System;
+using System.IO.Ports;
 using System.Text;
 
 namespace AmbientLightForPC.Library.Controller
@@ -7,9 +8,17 @@ namespace AmbientLightForPC.Library.Controller
     {
         public int BufSize { get; set; } = 128;
 
-        public event StringDataHandler StringDataReceived;
+        #region Events
+
+        public event StringDataHandler OnStringDataReceived;
 
         public delegate void StringDataHandler(string value);
+
+        public event ExceptionHandler OnException;
+
+        public delegate void ExceptionHandler(string value);
+
+        #endregion
 
         public SerialPortController(string portName,
             int baudRate,
@@ -19,7 +28,7 @@ namespace AmbientLightForPC.Library.Controller
         {
             DataReceived += (_, _) =>
             {
-                if (StringDataReceived == null)
+                if (OnStringDataReceived == null)
                     return;
 
                 byte[] inputBuf = new byte[BufSize];
@@ -27,11 +36,12 @@ namespace AmbientLightForPC.Library.Controller
                 try
                 {
                     Read(inputBuf, 0, BytesToRead);
-                    StringDataReceived(Encoding.ASCII.GetString(inputBuf));
+                    OnStringDataReceived(Encoding.ASCII.GetString(inputBuf));
                 }
-                catch
+                catch (Exception e)
                 {
-                    StringDataReceived("");
+                    if (OnException != null)
+                        OnException(e);
                 }
             };
         }
