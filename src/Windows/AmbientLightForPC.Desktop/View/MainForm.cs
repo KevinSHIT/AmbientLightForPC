@@ -18,8 +18,6 @@ namespace AmbientLightForPC.Desktop.View
             numBrightness.Value = tkbBrightness.Value;
         }
 
-        bool hasShowedWarning = false;
-
         private void numBrightness_ValueChanged(object sender, EventArgs e)
         {
             tkbBrightness.Value = (int) numBrightness.Value;
@@ -77,6 +75,11 @@ namespace AmbientLightForPC.Desktop.View
                 {
                     ckbOverNormal.Checked = false;
                 }
+            }
+            else
+            {
+                if (tkbBrightness.Value > 100)
+                    tkbBrightness.Value = (int)(numBrightness.Value = 100);
             }
 
             tkbBrightness.Maximum = (int) (numBrightness.Maximum = ckbOverNormal.Checked ? 255 : 100);
