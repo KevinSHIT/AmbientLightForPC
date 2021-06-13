@@ -4,7 +4,7 @@ using AmbientLightForPC.Plugin;
 
 namespace AmbientLightForPC.Library.Controller
 {
-    public class DefaultBrightnessController : IBrightnessControl
+    public class DefaultBrightnessController : BrightnessControllerBase
     {
         private bool ControlBrightness(byte value, bool onlyValidForFirst)
         {
@@ -31,9 +31,13 @@ namespace AmbientLightForPC.Library.Controller
             return true;
         }
 
-        public bool ControlBrightness(byte controlValue)
+        public override bool ControlBrightness(byte controlValue)
         {
             return ControlBrightness(controlValue, true);
         }
+
+        public override string Name => "Default Brightness Controller";
+
+        public override string Description => "Use WMI (Windows Management Interface) to control the brightness";
     }
 }

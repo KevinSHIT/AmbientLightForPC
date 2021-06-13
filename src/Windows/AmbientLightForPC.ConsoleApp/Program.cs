@@ -9,7 +9,8 @@ namespace AmbientLightForPC.ConsoleApp
     {
         public static void Main(string[] args)
         {
-            IBrightnessControl bc = Factory.CreateController<DefaultBrightnessController>();
+            BrightnessControllerBase bc = Factory.CreateController<DefaultBrightnessController>();
+            Console.WriteLine(bc);
             Console.WriteLine(bc.TryControlBrightness(100));
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace AmbientLightForPC.Plugin
 {
-    public interface IBrightnessControl
+    public abstract class BrightnessControllerBase
     {
         /// <summary>
         /// Control the brightness with try. This will call ControlBrightness(byte controlValue).
@@ -26,6 +26,14 @@
         /// </summary>
         /// <param name="controlValue">Value of brightness, maximum should be 255</param>
         /// <returns>Success status</returns>
-        public bool ControlBrightness(byte controlValue);
+        public abstract bool ControlBrightness(byte controlValue);
+
+        public abstract string Name { get; }
+        public abstract string Description { get; }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}\nDescription: {Description}";
+        }
     }
 }

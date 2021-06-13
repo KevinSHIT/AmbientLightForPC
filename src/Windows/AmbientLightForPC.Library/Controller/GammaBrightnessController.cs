@@ -5,7 +5,7 @@ using AmbientLightForPC.Plugin;
 
 namespace AmbientLightForPC.Library.Controller
 {
-    public class GammaBrightnessController : IBrightnessControl
+    public class GammaBrightnessController : BrightnessControllerBase
     {
         [DllImport("gdi32.dll")]
         private static extern unsafe bool SetDeviceGammaRamp(Int32 hdc, void* ramp);
@@ -39,9 +39,14 @@ namespace AmbientLightForPC.Library.Controller
             return retVal;
         }
 
-        public bool ControlBrightness(byte controlValue)
+        public override bool ControlBrightness(byte controlValue)
         {
             return ControlBrightnessUnsafe(controlValue);
         }
+
+        public override string Name => "Gamma Brightness Controller";
+
+        public override string Description =>
+            "Use WinAPI set gamma value to control the brightness. This way will use unsafe method.";
     }
 }
