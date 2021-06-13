@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using AmbientLightForPC.Plugin;
 
-namespace AmbientLightForPC
+namespace AmbientLightForPC.Controller
 {
     public class GammaBrightnessController : IBrightnessControl
     {
@@ -17,7 +17,7 @@ namespace AmbientLightForPC
             hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
         }
 
-        public static unsafe bool ControlBrightnessUnsafe(byte brightness)
+        private static unsafe bool ControlBrightnessUnsafe(byte brightness)
         {
             if (brightness > 255)
                 brightness = 255;

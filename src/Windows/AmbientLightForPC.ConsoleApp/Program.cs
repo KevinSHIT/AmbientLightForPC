@@ -1,9 +1,10 @@
 ﻿using System;
+using AmbientLightForPC.Controller;
 using AmbientLightForPC.Plugin;
 
 namespace AmbientLightForPC
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {

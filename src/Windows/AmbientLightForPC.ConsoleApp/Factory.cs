@@ -2,7 +2,7 @@
 
 namespace AmbientLightForPC
 {
-    public class Factory
+    public static class Factory
     {
         public static IBrightnessControl GreateController<T>() where T : IBrightnessControl, new()
         {

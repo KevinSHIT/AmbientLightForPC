@@ -2,7 +2,7 @@
 using System.Management;
 using AmbientLightForPC.Plugin;
 
-namespace AmbientLightForPC
+namespace AmbientLightForPC.Controller
 {
     public class DefaultBrightnessController : IBrightnessControl
     {
