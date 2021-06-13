@@ -41,6 +41,7 @@ namespace AmbientLightForPC.Desktop.View
         {
             cmbBrightnessController.Items.Add(Factory.CreateController<DefaultBrightnessController>());
             cmbBrightnessController.Items.Add(Factory.CreateController<GammaBrightnessController>());
+            cmbBrightnessController.SelectedIndex = 0;
         }
 
         private void btnApply_Click(object sender, EventArgs e)
