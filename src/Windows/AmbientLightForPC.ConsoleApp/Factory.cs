@@ -1,12 +1,14 @@
-﻿namespace AmbientLightForPC
+﻿using AmbientLightForPC.Plugin;
+
+namespace AmbientLightForPC
 {
     public class Factory
     {
-        public static BrightnessController CreateDefaultBrightnessController()
+        public static IBrightnessControl GreateController<T>() where T : IBrightnessControl, new()
         {
             try
             {
-                return new BrightnessController();
+                return new T();
             }
             catch
             {

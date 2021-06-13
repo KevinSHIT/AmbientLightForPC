@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Management;
+using AmbientLightForPC.Plugin;
 
 namespace AmbientLightForPC
 {
@@ -6,8 +8,8 @@ namespace AmbientLightForPC
     {
         public static void Main(string[] args)
         {
-            BrightnessController bc = Factory.CreateDefaultBrightnessController();
-            Console.WriteLine(bc.ControlBrightness(100));
+            IBrightnessControl bc = Factory.GreateController<DefaultBrightnessController>();
+            Console.WriteLine(bc.ControlBrightness(10));
         }
     }
 }

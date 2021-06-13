@@ -5,14 +5,14 @@ using AmbientLightForPC.Plugin;
 
 namespace AmbientLightForPC
 {
-    public class BrightnessController : IBrightnessControl
+    public class GammaBrightnessController : IBrightnessControl
     {
         [DllImport("gdi32.dll")]
         private static extern unsafe bool SetDeviceGammaRamp(Int32 hdc, void* ramp);
 
         private static Int32 hdc;
 
-        public BrightnessController()
+        public GammaBrightnessController()
         {
             hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
         }
