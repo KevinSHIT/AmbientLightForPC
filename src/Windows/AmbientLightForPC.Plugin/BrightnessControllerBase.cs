@@ -33,7 +33,7 @@
 
         public override string ToString()
         {
-            return $"Name: {Name}\nDescription: {Description}";
+            return Name;
         }
     }
 }
