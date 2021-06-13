@@ -47,6 +47,8 @@ namespace AmbientLightForPC.Desktop.View
                 return;
             BrightnessControllerBase bcb = (BrightnessControllerBase) selected;
 
+            lblControllerInfo.Text = $"Name: {bcb.Name}\nDescription: {bcb.Description}";
+
             tkbBrightness.Value = (int) (numBrightness.Value = bcb.TryGetBrightness());
         }
 

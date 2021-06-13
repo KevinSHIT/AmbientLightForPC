@@ -24,7 +24,7 @@ namespace AmbientLightForPC.Desktop.View
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
+        /// Required method for Designer support - do fnot modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -35,8 +35,11 @@ namespace AmbientLightForPC.Desktop.View
             this.btnApply = new System.Windows.Forms.Button();
             this.ckbAutoApply = new System.Windows.Forms.CheckBox();
             this.ckbOverNormal = new System.Windows.Forms.CheckBox();
+            this.gpbInfo = new System.Windows.Forms.GroupBox();
+            this.lblControllerInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tkbBrightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrightness)).BeginInit();
+            this.gpbInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // tkbBrightness
@@ -70,7 +73,7 @@ namespace AmbientLightForPC.Desktop.View
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(346, 115);
+            this.btnApply.Location = new System.Drawing.Point(346, 199);
             this.btnApply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(126, 54);
@@ -82,7 +85,8 @@ namespace AmbientLightForPC.Desktop.View
             // ckbAutoApply
             // 
             this.ckbAutoApply.AutoSize = true;
-            this.ckbAutoApply.Location = new System.Drawing.Point(12, 115);
+            this.ckbAutoApply.Location = new System.Drawing.Point(12, 199);
+            this.ckbAutoApply.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ckbAutoApply.Name = "ckbAutoApply";
             this.ckbAutoApply.Size = new System.Drawing.Size(106, 24);
             this.ckbAutoApply.TabIndex = 4;
@@ -93,7 +97,8 @@ namespace AmbientLightForPC.Desktop.View
             // ckbOverNormal
             // 
             this.ckbOverNormal.AutoSize = true;
-            this.ckbOverNormal.Location = new System.Drawing.Point(12, 145);
+            this.ckbOverNormal.Location = new System.Drawing.Point(12, 229);
+            this.ckbOverNormal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ckbOverNormal.Name = "ckbOverNormal";
             this.ckbOverNormal.Size = new System.Drawing.Size(198, 24);
             this.ckbOverNormal.TabIndex = 5;
@@ -101,11 +106,33 @@ namespace AmbientLightForPC.Desktop.View
             this.ckbOverNormal.UseVisualStyleBackColor = true;
             this.ckbOverNormal.CheckedChanged += new System.EventHandler(this.ckbOverNormal_CheckedChanged);
             // 
+            // gpbInfo
+            // 
+            this.gpbInfo.Controls.Add(this.lblControllerInfo);
+            this.gpbInfo.Location = new System.Drawing.Point(12, 101);
+            this.gpbInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpbInfo.Name = "gpbInfo";
+            this.gpbInfo.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gpbInfo.Size = new System.Drawing.Size(460, 84);
+            this.gpbInfo.TabIndex = 6;
+            this.gpbInfo.TabStop = false;
+            this.gpbInfo.Text = "Controller Info";
+            // 
+            // lblControllerInfo
+            // 
+            this.lblControllerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblControllerInfo.Location = new System.Drawing.Point(3, 22);
+            this.lblControllerInfo.Name = "lblControllerInfo";
+            this.lblControllerInfo.Size = new System.Drawing.Size(454, 60);
+            this.lblControllerInfo.TabIndex = 0;
+            this.lblControllerInfo.Text = "Null";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 183);
+            this.ClientSize = new System.Drawing.Size(488, 261);
+            this.Controls.Add(this.gpbInfo);
             this.Controls.Add(this.ckbOverNormal);
             this.Controls.Add(this.ckbAutoApply);
             this.Controls.Add(this.btnApply);
@@ -118,6 +145,7 @@ namespace AmbientLightForPC.Desktop.View
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tkbBrightness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBrightness)).EndInit();
+            this.gpbInfo.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +159,8 @@ namespace AmbientLightForPC.Desktop.View
         private System.Windows.Forms.Button btnApply;
         private System.Windows.Forms.CheckBox ckbAutoApply;
         private System.Windows.Forms.CheckBox ckbOverNormal;
+        private System.Windows.Forms.GroupBox gpbInfo;
+        private System.Windows.Forms.Label lblControllerInfo;
     }
 }
 
