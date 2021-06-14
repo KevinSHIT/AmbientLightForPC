@@ -2,7 +2,7 @@
 /*
  * Project: AmbientLightForPC
  * Author: KevinZonda
- * Date: 13/06/2021
+ * Date: 14/06/2021
  * Link: https://github.com/KevinZonda/AmbientLightForPC
  * Description: This programme uses library https://github.com/claws/BH1750
  * 
