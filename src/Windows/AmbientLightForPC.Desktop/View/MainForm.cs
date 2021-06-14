@@ -64,6 +64,8 @@ namespace AmbientLightForPC.Desktop.View
         private void ckbAutoApply_CheckedChanged(object sender, EventArgs e)
         {
             btnApply.Enabled = !ckbAutoApply.Checked;
+            if (ckbAutoApply.Checked)
+                Apply();
         }
 
         private void ckbOverNormal_CheckedChanged(object sender, EventArgs e)
