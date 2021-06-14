@@ -18,12 +18,11 @@ BH1750 bh;
 
 void setup()
 {
-
-    Serial.begin(9600);
-
     // Initialise I2C
     Wire.begin(D3, D4);
     bh.begin();
+
+    Serial.begin(9600);
 
     Serial.println();
     Serial.println(F("I: -------------------------------------"));
