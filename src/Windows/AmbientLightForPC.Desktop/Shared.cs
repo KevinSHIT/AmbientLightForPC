@@ -11,5 +11,8 @@ namespace AmbientLightForPC.Desktop
         
         public static BrightnessControllerBase GammaBrightnessController =
             Factory.CreateController<GammaBrightnessController>();
+
+        
+        public static bool AutoChange = true;
     }
 }
