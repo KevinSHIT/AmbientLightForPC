@@ -1,4 +1,3 @@
-
 /*
  * Project: AmbientLightForPC
  * Author: KevinZonda
@@ -8,9 +7,10 @@
  * 
  * 3.3V         VCC              Power
  * GND          GND              Ground
- * A4           SDA              I2C Data
- * A5           SCL              I2C Clock
+ * D3           SDA              I2C Data
+ * D4           SCL              I2C Clock
  */
+
 #include <Wire.h>
 #include <APDS9900.h>
 
@@ -19,7 +19,7 @@ APDS9900 apds = APDS9900();
 
 void setup()
 {
-    Wire.begin(A4, A5);
+    Wire.begin(D3, D4);
     pinMode(APDS9900_PIN, INPUT);
 
     Serial.begin(9600);

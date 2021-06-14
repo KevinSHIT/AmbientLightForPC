@@ -1,4 +1,3 @@
-
 /*
  * Project: AmbientLightForPC
  * Author: KevinZonda
@@ -11,6 +10,7 @@
  * D3           SDA              I2C Data
  * D4           SCL              I2C Clock
  */
+
 #include <Wire.h>
 #include <BH1750.h>
 
