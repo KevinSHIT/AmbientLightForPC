@@ -29,8 +29,8 @@ namespace AmbientLightForPC.Desktop.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            cmbBrightnessController.Items.Add(Factory.CreateController<DefaultBrightnessController>());
-            cmbBrightnessController.Items.Add(Factory.CreateController<GammaBrightnessController>());
+            cmbBrightnessController.Items.Add(Shared.DefaultBrightnessController);
+            cmbBrightnessController.Items.Add(Shared.GammaBrightnessController);
             cmbBrightnessController.SelectedIndex = 0;
             ntfMain.Icon = SystemIcons.Application;
         }
