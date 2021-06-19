@@ -83,7 +83,7 @@ namespace AmbientLightForPC.Desktop.View
             else
             {
                 if (tkbBrightness.Value > 100)
-                    tkbBrightness.Value = (int)(numBrightness.Value = 100);
+                    tkbBrightness.Value = (int) (numBrightness.Value = 100);
             }
 
             tkbBrightness.Maximum = (int) (numBrightness.Maximum = ckbOverNormal.Checked ? 255 : 100);
@@ -98,11 +98,10 @@ namespace AmbientLightForPC.Desktop.View
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-            if (WindowState == FormWindowState.Minimized)
-            {
-                ntfMain.Visible = true;
-                ShowInTaskbar = false;
-            }
+            if (WindowState != FormWindowState.Minimized)
+                return;
+            ntfMain.Visible = true;
+            ShowInTaskbar = false;
         }
     }
 }
